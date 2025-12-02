@@ -1,0 +1,178 @@
+/* Basic Setup */
+:root {
+    --bg-light: #ffffff;
+    --text-light: #222222;
+    --border-light: #dddddd;
+    --primary-light: #007bff;
+    --primary-hover-light: #0056b3;
+
+    --bg-dark: #22272e;
+    --text-dark: #cdd9e5;
+    --border-dark: #444c56;
+    --primary-dark: #3391ff;
+    --primary-hover-dark: #58a6ff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    transition: background-color 0.3s, color 0.3s;
+    line-height: 1.6;
+}
+
+/* Dark Theme */
+body.dark-theme {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+/* Layout */
+.container {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+body.dark-theme header {
+    border-bottom-color: var(--border-dark);
+}
+
+h1 {
+    font-size: 1.8rem;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-style: italic;
+    opacity: 0.7;
+}
+
+/* Controls (Buttons) */
+.controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+button,
+.file-label {
+    background-color: var(--primary-light);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+body.dark-theme button,
+body.dark-theme .file-label {
+    background-color: var(--primary-dark);
+}
+
+button:hover,
+.file-label:hover {
+    background-color: var(--primary-hover-light);
+}
+
+body.dark-theme button:hover,
+body.dark-theme .file-label:hover {
+    background-color: var(--primary-hover-dark);
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-light);
+    padding: 5px;
+}
+
+body.dark-theme #theme-toggle {
+    color: var(--text-dark);
+}
+
+/* Scanner */
+.scanner-container {
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#video-feed {
+    width: 100%;
+    height: auto;
+    display: none; /* Hidden until camera is opened */
+}
+
+/* Results */
+#result-container {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    background-color: var(--bg-light);
+}
+
+body.dark-theme #result-container {
+    border-color: var(--border-dark);
+    background-color: #2d333b;
+}
+
+#result-container h2 {
+    margin-bottom: 10px;
+}
+
+#result-text {
+    white-space: pre-wrap; /* Preserves new lines */
+    word-break: break-all; /* Breaks long strings */
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: "Courier New", Courier, monospace;
+}
+
+#result-url {
+    display: block;
+    word-break: break-all;
+    color: var(--primary-light);
+    text-decoration: underline;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+body.dark-theme #result-text {
+    background: #22272e;
+}
+
+body.dark-theme #result-url {
+    color: var(--primary-dark);
+}
+
+.result-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
