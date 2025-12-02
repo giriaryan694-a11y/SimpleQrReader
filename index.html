@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Updated title as requested -->
+    <title>SimpleQrReader</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Include the jsQR library -->
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <!-- Updated heading as requested -->
+            <h1>SimpleQrReader</h1>
+            <button id="theme-toggle" title="Toggle theme">🌙</button>
+        </header>
+
+        <main>
+            <div class="controls">
+                <button id="open-camera">Open Camera</button>
+                <!-- We hide the default file input and style the label like a button -->
+                <input type="file" id="file-input" accept="image/*" hidden>
+                <label for="file-input" class="file-label">Select QR Image</label>
+            </div>
+
+            <div class="scanner-container">
+                <!-- Video feed for the camera -->
+                <video id="video-feed" playsinline></video>
+                <!-- This canvas is required for jsQR to work, but it is NOT visible to the user -->
+                <canvas id="canvas" style="display: none;"></canvas>
+            </div>
+
+            <!-- This section is hidden until a QR code is read -->
+            <div id="result-container" style="display: none;">
+                <h2>Scanned Content:</h2>
+                <!-- We use <pre> to preserve whitespace (like new lines) in the QR content -->
+                <pre id="result-text"></pre>
+                <!-- This link only appears if the content is a URL -->
+                <a href="#" id="result-url" target="_blank" style="display: none;"></a>
+                
+                <div class="result-actions">
+                    <button id="copy-btn">Copy</button>
+                    <button id="save-btn">Save as .txt</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Made By Aryan Giri</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
